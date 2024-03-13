@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 
-dataor = pd.read_csv("students_data(1).csv")
-data = pd.read_csv("students_data(1).csv")
+dataor = pd.read_csv("students_data.csv")
+data = pd.read_csv("students_data.csv")
 n = ["age", "Medu", "Fedu", "traveltime", "studytime", "failures", "famrel", "freetime", "goout", "Dalc", "Walc", "health", "absences", "G1", "G2", "G3"]
 srt = ["Mjob", "Fjob", "reason", "guardian", "romantic", "cheating", "school", "sex", "address", "famsize", "Pstatus", "schoolsup", "famsup", "paid", "activities", "nursery", "higher", "internet", "Subject"]
 NMean, NGMean, NMedian, SMedian = {}, {}, {}, {}

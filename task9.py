@@ -20,4 +20,4 @@ G4 = [m(i) for i in G3]
 
 data["G4"] = G4
 
-data.head()
+data.to_csv("students_data.csv")
