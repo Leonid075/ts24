@@ -11,15 +11,19 @@ def chNumb(a):
         return "0"
     else: return a
 
-for i in a:
-    data[i].fillna('', inplace = True)
-    data[i] = data[i].apply(lambda x: str(x).upper())
-    
-for i in b:
-    data[i].fillna('', inplace = True)
-    data[i] = data[i].apply(lambda x: str(x).lower())
+def run():
+    for i in a:
+        data[i].fillna('', inplace = True)
+        data[i] = data[i].apply(lambda x: str(x).upper())
+        
+    for i in b:
+        data[i].fillna('', inplace = True)
+        data[i] = data[i].apply(lambda x: str(x).lower())
 
-for i in l:
-    data[i] = data[i].apply(chNumb)
+    for i in l:
+        data[i] = data[i].apply(chNumb)
+        
+    data.to_csv("students_data.csv", index=False)
     
-data.to_csv("students_data(1).csv", index = False)
+if __name__ == '__main__':
+    run()
