@@ -7,41 +7,43 @@
 ## task 1
 
 Численные (num) и категориальный (cat) признаки:
-Subject - cat
-school - cat
-sex - cat
-age - numb
-address - cat
-famsize - cat
-Pstatus - cat
-Medu - cat
-Fedu - cat
-Mjob - cat
-Fjob - cat
-reason - cat
-guardian - cat
-traveltime - cat
-studytime - cat
-failures - numb
-schoolsup - cat
-famsup - cat
-paid - cat
-activities - cat
-nursery - cat
-higher - cat
-internet - cat
-romantic - cat
-famrel - numb
-freetime - numb
-goout - numb
-Dalc - numb
-Walc - numb
-health - numb
-absences - numb
-cheating - cat
-G1 - numb
-G2 - numb
-G3 - numb
+|признак   |тип|
+|----------|---|
+|Subject   |cat|
+|school    |cat|
+|sex       |cat|
+|age       |num|
+|address   |cat|
+|famsize   |cat|
+|Pstatus   |cat|
+|Medu      |cat|
+|Fedu      |cat|
+|Mjob      |cat|
+|Fjob      |cat|
+|reason    |cat|
+|guardian  |cat|
+|traveltime|cat|
+|studytime |cat|
+|failures  |num|
+|schoolsup |cat|
+|famsup    |cat|
+|paid      |cat|
+|activities|cat|
+|nursery   |cat|
+|higher    |cat|
+|internet  |cat|
+|romantic  |cat|
+|famrel    |num|
+|freetime  |num|
+|goout     |num|
+|Dalc      |num|
+|Walc      |num|
+|health    |num|
+|absences  |num|
+|cheating  |cat|
+|G1        |num|
+|G2        |num|
+|G3        |num|
 
 ## task 2
 
