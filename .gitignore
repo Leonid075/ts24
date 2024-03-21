@@ -2,3 +2,5 @@ task.ipynb
 test.ipynb
 *.csv
 *.png
+d.pkl
+r.pkl
