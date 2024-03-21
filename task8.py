@@ -4,7 +4,7 @@ import seaborn as sns
 data = pd.read_csv("students_data.csv")
 g_df = pd.DataFrame(columns=["MG1", "MG2", "MG3", "PG1", "PG2", "PG3"])
 
-df = data.sort_values(["Subject"]).drop(["ID", "Subject", "G1", "G2", "G3", "G4",  "famrel", "freetime", "goout", "Dalc", "Walc", "absences", "cheating"], axis=1)
+df = data.sort_values(["Subject"]).drop(["ID", "Subject", "G1", "G2", "G3", "G4",  "famrel", "freetime", "goout", "Dalc", "Walc", "absences", "cheating", "paid"], axis=1)
 scores = data[["Subject", "G1", "G2", "G3"]]
 
 duplicates = df[df.duplicated(keep=False)].sort_values(df.columns.to_list())
