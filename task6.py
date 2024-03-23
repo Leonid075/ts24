@@ -37,12 +37,18 @@ plt.figure(figsize=(12, 6))
 
 plt.subplot(1, 3, 1)
 sns.barplot(x=x, y=y_mean)
+plt.title("Mean")
 
 plt.subplot(1, 3, 2)
+
 sns.barplot(x=x, y=y_median)
+plt.title("Median")
 
 plt.subplot(1, 3, 3)
 sns.barplot(x=x, y=y_meang)
+plt.title("Geometric Mean")
+
+plt.savefig("Dalc & Walc")
 
 # 6.2
 params = ["address", "Pstatus", "higher", "romantic", "freetime"]
