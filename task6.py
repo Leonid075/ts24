@@ -53,11 +53,30 @@ plt.savefig("Dalc & Walc")
 # 6.2
 params = ["address", "Pstatus", "higher", "romantic", "freetime"]
 
-for i in params:
-    sns.catplot(data=data, x="Dalc", y=i, kind="boxen").savefig(f"Dalc_by_{i}")
+fig, axs = plt.subplots(nrows=1, ncols=5, figsize=(10,10))
+c = 0
 
 for i in params:
-    sns.catplot(data=data, x="Walc", y=i, kind="boxen").savefig(f"Walk_by_{i}")
+    axs[c].set_title(i)
+    sns.boxenplot(data=data, x="Dalc", y=i, ax=axs[c]) 
+    axs[c].grid()
+    c += 1
+
+fig.tight_layout()
+fig.savefig("Dalc")
+
+
+
+fig, axs = plt.subplots(nrows=1, ncols=5, figsize=(10,10))
+c = 0
+for i in params:
+    axs[c].set_title(i)
+    sns.boxenplot(data=data, x="Walc", y=i, ax=axs[c])
+    axs[c].grid()
+    c += 1
+
+fig.tight_layout()
+fig.savefig("Walc")
 
 # 6.3
 worstG3 = data.sort_values("G3")[:50]
