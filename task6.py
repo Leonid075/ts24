@@ -48,27 +48,58 @@ plt.subplot(1, 3, 3)
 sns.barplot(x=x, y=y_meang)
 plt.title("Geometric Mean")
 
-plt.savefig("Dalc & Walc")
+plt.savefig("Dalc_Walc")
 
 # 6.2
 params = ["address", "Pstatus", "higher", "romantic", "freetime"]
 
-for i in params:
-    sns.catplot(data=data, x="Dalc", y=i, kind="boxen").savefig(f"Dalc_by_{i}")
+fig, axs = plt.subplots(nrows=1, ncols=5, figsize=(20, 3))
 
-for i in params:
-    sns.catplot(data=data, x="Walc", y=i, kind="boxen").savefig(f"Walk_by_{i}")
+for ind, i in enumerate(params):
+    axs[ind].set_title(i)
+    sns.boxenplot(data=data, x="Dalc", y=i, ax=axs[ind])
+    axs[ind].grid()
+
+fig.tight_layout()
+fig.savefig("Dalc_by")
+
+fig, axs = plt.subplots(nrows=1, ncols=5, figsize=(20, 3))
+
+for ind, i in enumerate(params):
+    axs[ind].set_title(i)
+    sns.boxenplot(data=data, x="Walc", y=i, ax=axs[ind])
+    axs[ind].grid()
+
+fig.tight_layout()
+fig.savefig("Walc_by")
 
 # 6.3
 worstG3 = data.sort_values("G3")[:50]
 bestG3 = data.sort_values("G3")[::-1][:50]
 
-sns.catplot(data=worstG3, x="G3", y="Dalc",
-            kind="boxen").savefig("worst_by_Dalc")
-sns.catplot(data=worstG3, x="G3", y="Walc",
-            kind="boxen").savefig("worst_by_Walc")
+fig, axs = plt.subplots(nrows=1, ncols=2, figsize=(6, 3))
 
-sns.catplot(data=bestG3, x="G3", y="Dalc",
-            kind="boxen").savefig("best_by_Dalc")
-sns.catplot(data=bestG3, x="G3", y="Walc",
-            kind="boxen").savefig("best_by_Walc")
+axs[0].set_title("Dalc")
+sns.boxenplot(data=worstG3, x="G3", y="Dalc", ax=axs[0])
+axs[0].grid()
+
+axs[1].set_title("Walc")
+sns.boxenplot(data=worstG3, x="G3", y="Walc", ax=axs[1])
+axs[1].grid()
+
+fig.tight_layout()
+fig.savefig("walk_worst")
+
+
+fig, axs = plt.subplots(nrows=1, ncols=2, figsize=(6, 3))
+
+axs[0].set_title("Dalc")
+sns.boxenplot(data=bestG3, x="G3", y="Dalc", ax=axs[0])
+axs[0].grid()
+
+axs[1].set_title("Walc")
+sns.boxenplot(data=bestG3, x="G3", y="Walc", ax=axs[1])
+axs[1].grid()
+
+fig.tight_layout()
+fig.savefig("walk_best")
