@@ -9,8 +9,10 @@ from sklearn.metrics import accuracy_score
 def cat2num_dict(data, cat):
     cat_to_num = {}
     for i in cat:
-        cat_to_num[i] = dict(zip(map(str, list(data[i].unique())), range(len(data[i].unique()))))
+        cat_to_num[i] = dict(
+            zip(map(str, list(data[i].unique())), range(len(data[i].unique()))))
     return cat_to_num
+
 
 def cat2num(data, cat, dict_):
     for i in cat:
@@ -76,11 +78,12 @@ def test(testX: np.ndarray, testY: pd.Series) -> float:
 
 if __name__ == "__main__":
     fit = True
-    
+
     data = pd.read_csv("students_data.csv").drop(columns=["ID"])
 
-    cat = ["Mjob", "Fjob", "reason", "guardian", "romantic", "cheating", "school", "sex", "address", "famsize", "Pstatus", "schoolsup", "famsup", "paid", "activities", "nursery", "higher", "internet", "Subject"]
-    
+    cat = ["Mjob", "Fjob", "reason", "guardian", "romantic", "cheating", "school", "sex", "address", "famsize",
+           "Pstatus", "schoolsup", "famsup", "paid", "activities", "nursery", "higher", "internet", "Subject"]
+
     if fit:
         dict_ = cat2num_dict(data, cat)
         pickle.dump(dict_, open("catdict.pkl", "wb"))
@@ -91,7 +94,7 @@ if __name__ == "__main__":
 
     if fit:
         train(*split(data)[0])
-        
+
     acc = test(*split(data)[1])
 
     print(f"Точность модели: {round(acc, ndigits=3)}")
