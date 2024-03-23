@@ -6,6 +6,19 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 
+def cat2num_dict(data, cat):
+    cat_to_num = {}
+    for i in cat:
+        cat_to_num[i] = dict(zip(map(str, list(data[i].unique())), range(len(data[i].unique()))))
+    return cat_to_num
+
+def cat2num(data, cat, dict_):
+    for i in cat:
+        di = dict_[i]
+        data[i] = data[i].apply(lambda x: di[str(x)])
+    return data
+
+
 def split(data: pd.DataFrame, seed: int = 0) -> tuple[list, list]:
     train_data, test_data = train_test_split(data.drop(
         columns=["G1", "G2", "G3"]), train_size=0.8, test_size=0.2, shuffle=True, random_state=seed)
@@ -62,13 +75,23 @@ def test(testX: np.ndarray, testY: pd.Series) -> float:
 
 
 if __name__ == "__main__":
+    fit = True
+    
     data = pd.read_csv("students_data.csv").drop(columns=["ID"])
 
-    cat = ["Mjob", "Fjob", "reason", "guardian", "romantic", "cheating", "school", "sex", "address", "famsize",
-           "Pstatus", "schoolsup", "famsup", "paid", "activities", "nursery", "higher", "internet", "Subject"]
-    data[cat] = data[cat].apply(lambda x: pd.factorize(x)[0])
+    cat = ["Mjob", "Fjob", "reason", "guardian", "romantic", "cheating", "school", "sex", "address", "famsize", "Pstatus", "schoolsup", "famsup", "paid", "activities", "nursery", "higher", "internet", "Subject"]
+    
+    if fit:
+        dict_ = cat2num_dict(data, cat)
+        pickle.dump(dict_, open("catdict.pkl", "wb"))
+    else:
+        dict_ = pickle.load(open("catdict.pkl", "rb"))
 
-    train(*split(data)[0])
+    data = cat2num(data, cat, dict_)
+
+    if fit:
+        train(*split(data)[0])
+        
     acc = test(*split(data)[1])
 
     print(f"Точность модели: {round(acc, ndigits=3)}")
