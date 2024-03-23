@@ -1,6 +1,6 @@
 task.ipynb
 test.ipynb
 *.csv
-*.png
-d.pkl
-r.pkl
+# *.png
+# d.pkl
+# r.pkl
