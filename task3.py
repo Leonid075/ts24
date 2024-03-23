@@ -51,7 +51,7 @@ else:
 
 # 3.5
 print("Сколько в среднем времени в неделю уходит на учебу по каждому предмету?")
-data = pd.read_csv("students_data(1).csv")
+data = pd.read_csv("students_data.csv")
 score = "12345"
 names = ["freetime", "goout", "Dalc", "Walc"]
 p5, m5 = 0, 0
@@ -76,5 +76,5 @@ print(p5/(4*len(dataor[dataor["Subject"] == "Por"])),
 
 # 3.6
 print("На что чаще обращают внимание при выборе школы?")
-data = pd.read_csv("students_data(1).csv")
+data = pd.read_csv("students_data.csv")
 print(data["reason"].mode().to_list()[0])
