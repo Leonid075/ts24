@@ -100,12 +100,12 @@
 
 ### 6.1
 
-![plot](./data/Dalk_Walk.png)
+![plot](./data/Dalc_Walc.png)
 
 ### 6.2
 
-![plot](./data/Dalk_by.png)
-![plot](./data/Walk_by.png)
+![plot](./data/Dalc_by.png)
+![plot](./data/Walc_by.png)
 
 ### 6.3
 
