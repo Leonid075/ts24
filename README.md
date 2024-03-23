@@ -106,7 +106,9 @@
 
 ### 8.2
 
-![plot](./data/G1_compare.png "Title")
+![plot](./data/G1_compare.png)
+![plot](./data/G2_compare.png)
+![plot](./data/G3_compare.png)
 
 Большинство учащихся, посещающих оба предмета, имеют средние оценки по обоим из них.
 
