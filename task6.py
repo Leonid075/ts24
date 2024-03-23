@@ -22,8 +22,10 @@ FavD_mean, FavW_mean = np.mean(femaleD), np.mean(femaleW)
 MavD_median, MavW_median = np.median(maleD), np.median(maleW)
 FavD_median, FavW_median = np.median(femaleD), np.median(femaleW)
 
-MavD_meang, MavW_meang = np.sqrt(np.square(maleD).mean()), np.sqrt(np.square(maleW).mean())
-FavD_meang, FavW_meang = np.sqrt(np.square(femaleD).mean()), np.sqrt(np.square(femaleW).mean())
+MavD_meang, MavW_meang = np.sqrt(
+    np.square(maleD).mean()), np.sqrt(np.square(maleW).mean())
+FavD_meang, FavW_meang = np.sqrt(
+    np.square(femaleD).mean()), np.sqrt(np.square(femaleW).mean())
 
 x = ["MaleD", "MaleW", "FemaleD", "FemaleW"]
 y_mean = [MavD_mean, MavW_mean, FavD_mean, FavW_mean]
@@ -55,8 +57,12 @@ for i in params:
 worstG3 = data.sort_values("G3")[:50]
 bestG3 = data.sort_values("G3")[::-1][:50]
 
-sns.catplot(data=worstG3, x="G3", y="Dalc", kind="boxen")
-sns.catplot(data=worstG3, x="G3", y="Walc", kind="boxen")
+sns.catplot(data=worstG3, x="G3", y="Dalc",
+            kind="boxen").savefig("worst_by_Dalc")
+sns.catplot(data=worstG3, x="G3", y="Walc",
+            kind="boxen").savefig("worst_by_Walc")
 
-sns.catplot(data=bestG3, x="G3", y="Dalc", kind="boxen")
-sns.catplot(data=bestG3, x="G3", y="Walc", kind="boxen")
+sns.catplot(data=bestG3, x="G3", y="Dalc",
+            kind="boxen").savefig("best_by_Dalc")
+sns.catplot(data=bestG3, x="G3", y="Walc",
+            kind="boxen").savefig("best_by_Walc")
