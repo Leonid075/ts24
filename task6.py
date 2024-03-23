@@ -14,8 +14,6 @@ maleW = data[~(data["sex"] == "M")]["Walc"].dropna().to_numpy()
 femaleD = data[~(data["sex"] == "F")]["Dalc"].dropna().to_numpy()
 femaleW = data[~(data["sex"] == "F")]["Walc"].dropna().to_numpy()
 
-print(len(maleD), len(maleW), len(femaleD), len(femaleW), len(data))
-
 MavD_mean, MavW_mean = np.mean(maleD), np.mean(maleW)
 FavD_mean, FavW_mean = np.mean(femaleD), np.mean(femaleW)
 
