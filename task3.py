@@ -1,8 +1,8 @@
 import pandas as pd
 import numpy as np
 
-dataor = pd.read_csv("students_data(1).csv")
-data = pd.read_csv("students_data(1).csv")
+dataor = pd.read_csv("students_data.csv")
+data = pd.read_csv("students_data.csv")
 n = ["age", "Medu", "Fedu", "traveltime", "studytime", "failures", "famrel", "freetime", "goout", "Dalc", "Walc", "health", "absences", "G1", "G2", "G3"]
 srt = ["Mjob", "Fjob", "reason", "guardian", "romantic", "cheating", "school", "sex", "address", "famsize", "Pstatus", "schoolsup", "famsup", "paid", "activities", "nursery", "higher", "internet", "Subject"]
 NMean, NGMean, NMedian, SMedian = {}, {}, {}, {}
@@ -24,6 +24,8 @@ for i in n+srt:
         NMedian[i] = np.median(data[i])
     if i in srt:
         SMedian[i] = np.median(data[i])
+
+print(f"Среднее по числовым признакам - {NMean}\nСреднее геометрическое по числовым признакам - {NGMean}\nМедиана по числовым признакам - {NMedian}\nМедиана по категориальным признакам - {SMedian}")
 
 #3.2
 print("Сколько студентов посещают каждую из школ?")
@@ -48,7 +50,6 @@ else:
 
 #3.5
 print("Сколько в среднем времени в неделю уходит на учебу по каждому предмету?")
-data = pd.read_csv("students_data(1).csv")
 score = "12345"
 names = ["freetime", "goout", "Dalc", "Walc"]
 p5, m5 = 0, 0
@@ -61,14 +62,13 @@ def rev(item):
         return 0
     
 for i in names:
-    data[i].fillna(0, inplace = True)
-    data[i] = data[i].apply(rev)
-    p5 += sum(data[data["Subject"] == "Por"][i])
-    m5 += sum(data[data["Subject"] == "Math"][i])
+    dataor[i].fillna(0, inplace = True)
+    dataor[i] = dataor[i].apply(rev)
+    p5 += sum(dataor[dataor["Subject"] == "Por"][i])
+    m5 += sum(dataor[dataor["Subject"] == "Math"][i])
 
 print(p5/(4*len(dataor[dataor["Subject"] == "Por"])), m5/(4*len(dataor[dataor["Subject"] == "Math"])))
 
 #3.6
 print("На что чаще обращают внимание при выборе школы?")
-data = pd.read_csv("students_data(1).csv")
-print(data["reason"].mode().to_list()[0])
+print(dataor["reason"].mode().to_list()[0])
